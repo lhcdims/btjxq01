@@ -75,6 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
   bool _bolCheckBox4 = false;
   bool _bolCheckBox5 = false;
 
+  String strType1 = gv.listType1[0];
+  String strType2 = gv.listType2[0];
+
   void _CheckBoxChanged1(bool value) {
     if (value) {
       setState(() => _bolCheckBox1 = value);
@@ -340,7 +343,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: sv.dblDefaultFontSize * 2,
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
-                    value: gv.listType1[0],
+                    value: strType1,
                     items: gv.listType1.map((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
@@ -349,7 +352,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             textScaleFactor: 1.0),
                       );
                     }).toList(),
-                    onChanged: (_) {},
+                    onChanged: (String newValue) {
+                      setState(() {
+                        strType1 = newValue;
+                      });
+                    },
                   ),
                 ),
               ),
@@ -368,7 +375,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: sv.dblDefaultFontSize * 2,
                 child: DropdownButtonHideUnderline(
                   child: DropdownButton<String>(
-                    value: gv.listType2[0],
+                    value: strType2,
                     items: gv.listType2.map((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
@@ -377,7 +384,11 @@ class _MyHomePageState extends State<MyHomePage> {
                             textScaleFactor: 1.0),
                       );
                     }).toList(),
-                    onChanged: (_) {},
+                    onChanged: (String newValue) {
+                      setState(() {
+                        strType2 = newValue;
+                      });
+                    },
                   ),
                 ),
               ),
